@@ -12,6 +12,9 @@ import DataCentres from "./pages/DataCentres";
 import CloudServices from "./pages/CloudServices";
 import Industries from "./pages/Industries";
 import Contact from "./pages/Contact";
+import CustomerService from "./pages/CustomerService";
+import Resources from "./pages/Resources";
+import Media from "./pages/Media";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +35,9 @@ const App = () => (
             <Route path="/cloud-services" element={<CloudServices />} />
             <Route path="/industries" element={<Industries />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/customer-service" element={<CustomerService />} />
+            <Route path="/resources" element={<Resources />} />
+            <Route path="/media" element={<Media />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

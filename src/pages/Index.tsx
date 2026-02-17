@@ -3,7 +3,8 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import {
   Globe, Server, Cloud, Shield, Zap, Clock, Building2, Landmark,
-  Wifi, HardDrive, Database, Monitor, ArrowRight, CheckCircle2
+  Wifi, HardDrive, Database, Monitor, ArrowRight, CheckCircle2,
+  Calendar, Newspaper, Award
 } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import heroBg from "@/assets/hero-bg.jpg";
@@ -23,6 +24,13 @@ const stats = [
   { value: "Tier II", label: "Data Centre – Kumasi", icon: Database },
 ];
 
+const sectors = [
+  { icon: Landmark, label: "For Public Sector", description: "Government MDAs and public institutions", href: "/industries" },
+  { icon: Building2, label: "For Large Enterprises", description: "Financial services and corporates", href: "/industries" },
+  { icon: Wifi, label: "For SMEs & Startups", description: "Affordable scalable solutions", href: "/industries" },
+  { icon: Globe, label: "For Partners & ISPs", description: "Wholesale and partner services", href: "/industries" },
+];
+
 const services = [
   { icon: Globe, title: "Fibre Connectivity", description: "National backbone and metro fibre across Ghana with carrier-grade reliability.", href: "/connectivity" },
   { icon: Wifi, title: "Dedicated Internet", description: "High-speed, symmetric internet access with guaranteed uptime SLAs.", href: "/connectivity" },
@@ -39,12 +47,21 @@ const whyUs = [
   { icon: Clock, title: "24/7 NOC", description: "Round-the-clock Network Operations Centre monitoring." },
 ];
 
-const industries = [
-  { icon: Landmark, label: "Government" },
-  { icon: Building2, label: "Financial Services" },
-  { icon: Wifi, label: "Telecom & ISPs" },
-  { icon: Zap, label: "Large Enterprises" },
-  { icon: Globe, label: "SMEs & Startups" },
+const newsItems = [
+  { title: "Smart Infraco Expands National Fibre Backbone to Northern Ghana", date: "February 10, 2026", category: "Infrastructure" },
+  { title: "Tier III Data Centre in Accra Achieves 99.99% Uptime in 2025", date: "January 28, 2026", category: "Data Centres" },
+  { title: "Smart Infraco Partners with Government on Digital Ghana Initiative", date: "January 15, 2026", category: "Government" },
+];
+
+const certifications = [
+  "ISO/IEC 27001:2022",
+  "Uptime Institute Tier III",
+  "Ghana Data Protection Compliant",
+  "PCI DSS Compliant",
+];
+
+const partners = [
+  "Huawei", "Cisco", "Microsoft", "Oracle", "Dell Technologies", "VMware",
 ];
 
 const Index = () => {
@@ -85,6 +102,38 @@ const Index = () => {
                 </Link>
               </div>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Sectors Served (Galaxy Backbone style) */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <SectionHeading
+            label="Who We Serve"
+            title="We Serve Different Sectors"
+            description="Tailored infrastructure solutions for every segment of Ghana's economy."
+          />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {sectors.map((sector, i) => (
+              <motion.div
+                key={sector.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+              >
+                <Link to={sector.href} className="block group">
+                  <div className="bg-card rounded-xl p-8 card-elevated h-full border border-border text-center">
+                    <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
+                      <sector.icon className="w-8 h-8 text-primary" />
+                    </div>
+                    <h3 className="text-base font-semibold text-secondary mb-2">{sector.label}</h3>
+                    <p className="text-sm text-muted-foreground">{sector.description}</p>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -205,27 +254,99 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Industries */}
+      {/* Newsfeed */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <SectionHeading
-            label="Industries"
-            title="Serving Every Sector"
-            description="From government to startups, we power Ghana's digital economy."
+            label="Latest Updates"
+            title="Newsfeed"
+            description="Stay informed about our latest developments and milestones."
+          />
+          <div className="grid md:grid-cols-3 gap-6">
+            {newsItems.map((item, i) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+              >
+                <Link to="/media" className="block group">
+                  <div className="bg-card rounded-xl border border-border card-elevated overflow-hidden">
+                    <div className="h-1.5 bg-gradient-to-r from-primary to-accent" />
+                    <div className="p-6">
+                      <div className="flex items-center gap-3 mb-3">
+                        <span className="text-xs font-medium text-primary bg-primary/10 px-2.5 py-1 rounded-full">
+                          {item.category}
+                        </span>
+                        <span className="text-xs text-muted-foreground flex items-center gap-1">
+                          <Calendar className="w-3 h-3" />
+                          {item.date}
+                        </span>
+                      </div>
+                      <h3 className="text-sm font-semibold text-secondary group-hover:text-primary transition-colors leading-tight">
+                        {item.title}
+                      </h3>
+                    </div>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <Link to="/media">
+              <Button variant="outline" size="lg">
+                View All News
+                <ArrowRight className="w-4 h-4" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Awards & Certifications */}
+      <section className="py-16 bg-card">
+        <div className="container mx-auto px-4">
+          <SectionHeading
+            label="Trust & Compliance"
+            title="Awards & Certifications"
           />
           <div className="flex flex-wrap justify-center gap-4">
-            {industries.map((ind, i) => (
+            {certifications.map((cert, i) => (
               <motion.div
-                key={ind.label}
+                key={cert}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: i * 0.08 }}
+                className="flex items-center gap-3 bg-background border border-border rounded-xl px-6 py-4"
               >
-                <Link to="/industries" className="flex items-center gap-3 bg-card border border-border rounded-xl px-6 py-4 card-elevated">
-                  <ind.icon className="w-5 h-5 text-primary" />
-                  <span className="text-sm font-medium text-secondary">{ind.label}</span>
-                </Link>
+                <Award className="w-5 h-5 text-accent" />
+                <span className="text-sm font-medium text-secondary">{cert}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Partners */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <SectionHeading
+            label="Ecosystem"
+            title="Our Partners"
+          />
+          <div className="flex flex-wrap justify-center gap-6">
+            {partners.map((partner, i) => (
+              <motion.div
+                key={partner}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: i * 0.06 }}
+                className="flex items-center justify-center bg-card border border-border rounded-xl px-8 py-5 min-w-[160px]"
+              >
+                <span className="text-sm font-semibold text-muted-foreground tracking-wide">{partner}</span>
               </motion.div>
             ))}
           </div>
