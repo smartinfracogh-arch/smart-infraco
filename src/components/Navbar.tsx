@@ -12,19 +12,35 @@ const solutions = [
   { label: "Cloud & Managed Services", href: "/cloud-services" },
 ];
 
+const customerServiceLinks = [
+  { label: "Report an Issue", href: "/customer-service" },
+  { label: "Request a Quote", href: "/contact" },
+];
+
+const resourceLinks = [
+  { label: "Downloads", href: "/resources" },
+  { label: "FAQs", href: "/resources" },
+];
+
+const mediaLinks = [
+  { label: "News", href: "/media" },
+  { label: "Videos", href: "/media" },
+];
+
+type DropdownKey = "solutions" | "customerService" | "resources" | "media";
+
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Solutions", href: "#", children: solutions },
-  { label: "Connectivity", href: "/connectivity" },
-  { label: "Data Centres", href: "/data-centres" },
-  { label: "Cloud Services", href: "/cloud-services" },
-  { label: "Industries", href: "/industries" },
+  { label: "About Us", href: "/about" },
+  { label: "Services", href: "#", dropdownKey: "solutions" as DropdownKey, children: solutions },
+  { label: "Customer Service", href: "#", dropdownKey: "customerService" as DropdownKey, children: customerServiceLinks },
+  { label: "Resources", href: "#", dropdownKey: "resources" as DropdownKey, children: resourceLinks },
+  { label: "Media", href: "#", dropdownKey: "media" as DropdownKey, children: mediaLinks },
 ];
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [megaOpen, setMegaOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<DropdownKey | null>(null);
   const location = useLocation();
 
   return (
@@ -43,27 +59,27 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-1">
+        <nav className="hidden lg:flex items-center gap-0.5">
           {navLinks.map((link) =>
             link.children ? (
               <div
                 key={link.label}
                 className="relative"
-                onMouseEnter={() => setMegaOpen(true)}
-                onMouseLeave={() => setMegaOpen(false)}
+                onMouseEnter={() => setOpenDropdown(link.dropdownKey!)}
+                onMouseLeave={() => setOpenDropdown(null)}
               >
-                <button className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors rounded-lg">
+                <button className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors rounded-lg">
                   {link.label}
                   <ChevronDown className="w-3.5 h-3.5" />
                 </button>
-                {megaOpen && (
-                  <div className="absolute top-full left-0 w-72 bg-card rounded-xl shadow-xl border border-border p-3 mt-1">
+                {openDropdown === link.dropdownKey && (
+                  <div className="absolute top-full left-0 w-64 bg-card rounded-xl shadow-xl border border-border p-3 mt-1">
                     {link.children.map((child) => (
                       <Link
                         key={child.label}
                         to={child.href}
                         className="block px-4 py-2.5 text-sm text-foreground/80 hover:text-primary hover:bg-muted rounded-lg transition-colors"
-                        onClick={() => setMegaOpen(false)}
+                        onClick={() => setOpenDropdown(null)}
                       >
                         {child.label}
                       </Link>
@@ -75,7 +91,7 @@ const Navbar = () => {
               <Link
                 key={link.label}
                 to={link.href}
-                className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
+                className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
                   location.pathname === link.href
                     ? "text-primary bg-primary/5"
                     : "text-foreground/80 hover:text-primary"
