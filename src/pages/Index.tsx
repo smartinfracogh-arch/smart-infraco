@@ -69,7 +69,12 @@ const Index = () => {
     <div>
       {/* Hero */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${heroBg})` }} />
+        <motion.div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroBg})`, scale: 1.1 }}
+          animate={{ scale: [1.1, 1.15, 1.1], x: [0, -20, 0], y: [0, -10, 0] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-background/98 via-background/90 to-background/60" />
         <div className="relative z-10 container mx-auto px-4 py-32">
           <div className="max-w-2xl">
