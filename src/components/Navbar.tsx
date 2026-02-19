@@ -44,7 +44,7 @@ const Navbar = () => {
   const location = useLocation();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
       <div className="container mx-auto flex items-center justify-between h-16 lg:h-20 px-4">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
@@ -52,7 +52,7 @@ const Navbar = () => {
             <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-sm">SI</span>
             </div>
-            <span className="text-lg font-bold text-secondary">
+            <span className="text-lg font-bold text-foreground">
               Smart <span className="text-primary">Infraco</span>
             </span>
           </div>
@@ -123,7 +123,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="lg:hidden bg-card border-t border-border">
+        <div className="lg:hidden bg-background border-t border-border">
           <nav className="container mx-auto px-4 py-4 flex flex-col gap-1">
             {navLinks.map((link) =>
               link.children ? (

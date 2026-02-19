@@ -70,7 +70,7 @@ const Index = () => {
       {/* Hero */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${heroBg})` }} />
-        <div className="absolute inset-0 bg-gradient-to-r from-secondary/95 via-secondary/85 to-secondary/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/98 via-background/90 to-background/60" />
         <div className="relative z-10 container mx-auto px-4 py-32">
           <div className="max-w-2xl">
             <motion.div
@@ -81,11 +81,11 @@ const Index = () => {
               <span className="inline-block px-4 py-1.5 rounded-full bg-primary/20 text-primary text-xs font-semibold tracking-wider uppercase mb-6">
                 Ghana's Digital Infrastructure Partner
               </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary-foreground leading-tight mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
                 Powering Ghana's{" "}
                 <span className="text-gradient">Digital Backbone</span>
               </h1>
-              <p className="text-lg text-secondary-foreground/70 mb-8 leading-relaxed max-w-xl">
+              <p className="text-lg text-foreground/60 mb-8 leading-relaxed max-w-xl">
                 Secure. Scalable. National Infrastructure for Government & Enterprise. Future-ready connectivity and cloud solutions across Ghana.
               </p>
               <div className="flex flex-wrap gap-4">
@@ -128,7 +128,7 @@ const Index = () => {
                     <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
                       <sector.icon className="w-8 h-8 text-primary" />
                     </div>
-                    <h3 className="text-base font-semibold text-secondary mb-2">{sector.label}</h3>
+                    <h3 className="text-base font-semibold text-foreground mb-2">{sector.label}</h3>
                     <p className="text-sm text-muted-foreground">{sector.description}</p>
                   </div>
                 </Link>
@@ -144,7 +144,7 @@ const Index = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div {...fadeInUp}>
               <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">About Smart Infraco</span>
-              <h2 className="text-3xl md:text-4xl font-bold text-secondary mt-2 mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-2 mb-6">
                 Ghana's National Digital Infrastructure Company
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
@@ -185,10 +185,10 @@ const Index = () => {
                 className="text-center"
               >
                 <stat.icon className="w-8 h-8 text-accent mx-auto mb-3" />
-                <div className="text-3xl md:text-4xl font-bold text-secondary-foreground mb-1">
+                <div className="text-3xl md:text-4xl font-bold text-foreground mb-1">
                   {stat.value}
                 </div>
-                <div className="text-sm text-secondary-foreground/60">{stat.label}</div>
+                <div className="text-sm text-foreground/50">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -215,7 +215,7 @@ const Index = () => {
                 <Link to={service.href} className="block group">
                   <div className="bg-card rounded-xl p-8 card-elevated h-full border border-border">
                     <service.icon className="w-10 h-10 text-primary mb-4 group-hover:text-accent transition-colors" />
-                    <h3 className="text-lg font-semibold text-secondary mb-2">{service.title}</h3>
+                    <h3 className="text-lg font-semibold text-foreground mb-2">{service.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
                   </div>
                 </Link>
@@ -246,7 +246,7 @@ const Index = () => {
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
                   <item.icon className="w-7 h-7 text-primary" />
                 </div>
-                <h3 className="text-base font-semibold text-secondary mb-2">{item.title}</h3>
+                <h3 className="text-base font-semibold text-foreground mb-2">{item.title}</h3>
                 <p className="text-sm text-muted-foreground">{item.description}</p>
               </motion.div>
             ))}
@@ -284,7 +284,7 @@ const Index = () => {
                           {item.date}
                         </span>
                       </div>
-                      <h3 className="text-sm font-semibold text-secondary group-hover:text-primary transition-colors leading-tight">
+                      <h3 className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors leading-tight">
                         {item.title}
                       </h3>
                     </div>
@@ -322,7 +322,7 @@ const Index = () => {
                 className="flex items-center gap-3 bg-background border border-border rounded-xl px-6 py-4"
               >
                 <Award className="w-5 h-5 text-accent" />
-                <span className="text-sm font-medium text-secondary">{cert}</span>
+                <span className="text-sm font-medium text-foreground">{cert}</span>
               </motion.div>
             ))}
           </div>
@@ -357,10 +357,10 @@ const Index = () => {
       <section className="py-20 bg-section-dark">
         <div className="container mx-auto px-4 text-center">
           <motion.div {...fadeInUp}>
-            <h2 className="text-3xl md:text-4xl font-bold text-secondary-foreground mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Ready to Transform Your Infrastructure?
             </h2>
-            <p className="text-secondary-foreground/60 mb-8 max-w-xl mx-auto">
+            <p className="text-foreground/50 mb-8 max-w-xl mx-auto">
               Partner with Ghana's leading digital infrastructure company for secure, scalable, and future-ready solutions.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
