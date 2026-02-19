@@ -20,7 +20,7 @@ const SectionHeading = ({ label, title, description, light }: SectionHeadingProp
         {label}
       </span>
     )}
-    <h2 className={`text-3xl md:text-4xl font-bold mt-2 ${light ? "text-secondary-foreground" : "text-secondary"}`}>
+    <h2 className={`text-3xl md:text-4xl font-bold mt-2 ${light ? "text-secondary-foreground" : "text-foreground"}`}>
       {title}
     </h2>
     {description && (

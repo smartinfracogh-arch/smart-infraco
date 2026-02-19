@@ -15,13 +15,13 @@ const PageHero = ({ title, subtitle, backgroundImage }: PageHeroProps) => {
           style={{ backgroundImage: `url(${backgroundImage})` }}
         />
       )}
-      <div className="absolute inset-0 bg-gradient-to-b from-secondary/80 to-secondary/95" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/80 to-background/95" />
       <div className="relative z-10 container mx-auto px-4 py-24 text-center">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-bold text-secondary-foreground mb-4"
+          className="text-4xl md:text-5xl font-bold text-foreground mb-4"
         >
           {title}
         </motion.h1>
@@ -29,7 +29,7 @@ const PageHero = ({ title, subtitle, backgroundImage }: PageHeroProps) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="text-lg text-secondary-foreground/70 max-w-2xl mx-auto"
+          className="text-lg text-foreground/60 max-w-2xl mx-auto"
         >
           {subtitle}
         </motion.p>
