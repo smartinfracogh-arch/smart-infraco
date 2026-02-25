@@ -4,12 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 
 const solutions = [
-  { label: "National Fibre Backbone", href: "/connectivity" },
-  { label: "Metro Fibre", href: "/connectivity" },
-  { label: "Dedicated Internet Access", href: "/connectivity" },
-  { label: "MPLS & Dark Fibre", href: "/connectivity" },
+  { label: "Connectivity Solutions", href: "/connectivity" },
   { label: "Data Centres", href: "/data-centres" },
-  { label: "Cloud & Managed Services", href: "/cloud-services" },
+  { label: "Cloud Solutions", href: "/cloud-services" },
+  { label: "Cybersecurity", href: "/cybersecurity" },
 ];
 
 const customerServiceLinks = [

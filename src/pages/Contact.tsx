@@ -17,7 +17,6 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Placeholder - would integrate with backend
     alert("Thank you for your enquiry. We will be in touch shortly.");
   };
 
@@ -39,9 +38,9 @@ const Contact = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                <h2 className="text-2xl font-bold text-secondary mb-6">Get In Touch</h2>
+                <h2 className="text-2xl font-bold text-foreground mb-6">Get In Touch</h2>
                 <p className="text-muted-foreground leading-relaxed mb-8">
-                  Whether you need fibre connectivity, data centre services, or cloud solutions, our team is ready to help design the right infrastructure for your organisation.
+                  Whether you need connectivity, data centre services, cloud solutions, or cybersecurity, our team is ready to help design the right infrastructure for your organisation.
                 </p>
 
                 <div className="space-y-6">
@@ -50,7 +49,7 @@ const Contact = () => {
                       <Mail className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <p className="text-sm font-semibold text-secondary">Email</p>
+                      <p className="text-sm font-semibold text-foreground">Email</p>
                       <a href="mailto:info@smartinfraco.com" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                         info@smartinfraco.com
                       </a>
@@ -62,8 +61,8 @@ const Contact = () => {
                       <Phone className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <p className="text-sm font-semibold text-secondary">Phone</p>
-                      <p className="text-sm text-muted-foreground">+233 (0) 302 000 000</p>
+                      <p className="text-sm font-semibold text-foreground">Phone</p>
+                      <p className="text-sm text-muted-foreground">+233 27 482 2222</p>
                     </div>
                   </div>
 
@@ -72,14 +71,13 @@ const Contact = () => {
                       <MapPin className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <p className="text-sm font-semibold text-secondary">Office</p>
-                      <p className="text-sm text-muted-foreground">Accra, Ghana</p>
+                      <p className="text-sm font-semibold text-foreground">Office</p>
+                      <p className="text-sm text-muted-foreground">Marina Mall Building, 6th Floor,<br />Airport City, Accra, Ghana</p>
                     </div>
                   </div>
                 </div>
               </motion.div>
 
-              {/* Map placeholder */}
               <div className="bg-muted rounded-xl h-48 flex items-center justify-center">
                 <p className="text-sm text-muted-foreground">Google Map Placeholder</p>
               </div>
@@ -93,66 +91,32 @@ const Contact = () => {
               className="lg:col-span-2"
             >
               <form onSubmit={handleSubmit} className="bg-background rounded-xl p-8 border border-border card-elevated">
-                <h3 className="text-xl font-bold text-secondary mb-6">Send Us a Message</h3>
+                <h3 className="text-xl font-bold text-foreground mb-6">Send Us a Message</h3>
                 <div className="grid sm:grid-cols-2 gap-4 mb-4">
                   <div>
-                    <label className="block text-sm font-medium text-secondary mb-1.5">Full Name *</label>
-                    <input
-                      type="text"
-                      required
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-lg border border-border bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
-                    />
+                    <label className="block text-sm font-medium text-foreground mb-1.5">Full Name *</label>
+                    <input type="text" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="w-full px-4 py-2.5 rounded-lg border border-border bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors" />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-secondary mb-1.5">Email Address *</label>
-                    <input
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-lg border border-border bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
-                    />
+                    <label className="block text-sm font-medium text-foreground mb-1.5">Email Address *</label>
+                    <input type="email" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="w-full px-4 py-2.5 rounded-lg border border-border bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors" />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-secondary mb-1.5">Company</label>
-                    <input
-                      type="text"
-                      value={formData.company}
-                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-lg border border-border bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
-                    />
+                    <label className="block text-sm font-medium text-foreground mb-1.5">Company</label>
+                    <input type="text" value={formData.company} onChange={(e) => setFormData({ ...formData, company: e.target.value })} className="w-full px-4 py-2.5 rounded-lg border border-border bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors" />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-secondary mb-1.5">Phone</label>
-                    <input
-                      type="tel"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-lg border border-border bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
-                    />
+                    <label className="block text-sm font-medium text-foreground mb-1.5">Phone</label>
+                    <input type="tel" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} className="w-full px-4 py-2.5 rounded-lg border border-border bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors" />
                   </div>
                 </div>
                 <div className="mb-4">
-                  <label className="block text-sm font-medium text-secondary mb-1.5">Subject *</label>
-                  <input
-                    type="text"
-                    required
-                    value={formData.subject}
-                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-lg border border-border bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
-                  />
+                  <label className="block text-sm font-medium text-foreground mb-1.5">Subject *</label>
+                  <input type="text" required value={formData.subject} onChange={(e) => setFormData({ ...formData, subject: e.target.value })} className="w-full px-4 py-2.5 rounded-lg border border-border bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors" />
                 </div>
                 <div className="mb-6">
-                  <label className="block text-sm font-medium text-secondary mb-1.5">Message *</label>
-                  <textarea
-                    required
-                    rows={5}
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-lg border border-border bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors resize-none"
-                  />
+                  <label className="block text-sm font-medium text-foreground mb-1.5">Message *</label>
+                  <textarea required rows={5} value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} className="w-full px-4 py-2.5 rounded-lg border border-border bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors resize-none" />
                 </div>
                 <Button type="submit" variant="default" size="lg">
                   Send Message
