@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Cloud, Server, HardDrive, Database, Monitor, Shield, CheckCircle2 } from "lucide-react";
+import { Cloud, Server, HardDrive, Database, Monitor, Shield, CheckCircle2, RefreshCw } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import SectionHeading from "@/components/SectionHeading";
 import cloudBg from "@/assets/cloud-bg.jpg";
@@ -14,39 +14,39 @@ const fadeInUp = {
 const services = [
   {
     icon: Cloud,
-    title: "Hybrid Cloud",
-    description: "Seamlessly integrate on-premises infrastructure with cloud resources. Our hybrid cloud solutions provide the flexibility to run workloads where they perform best while maintaining security and compliance.",
-    features: ["Multi-cloud orchestration", "Seamless migration", "Unified management", "Cost optimisation"],
-  },
-  {
-    icon: Server,
-    title: "Virtual Private Servers",
-    description: "High-performance VPS instances hosted in our local data centres, offering low-latency compute with full root access and scalable resources.",
-    features: ["Local hosting", "Full root access", "Scalable resources", "SSD storage"],
-  },
-  {
-    icon: HardDrive,
-    title: "Backup as a Service (BaaS)",
-    description: "Automated, encrypted backup solutions that protect your critical data with local and geo-redundant copies for business continuity.",
-    features: ["Automated scheduling", "Encrypted storage", "Rapid recovery", "Geo-redundancy"],
-  },
-  {
-    icon: Database,
-    title: "Storage as a Service (STaaS)",
-    description: "Scalable, secure object and block storage services for enterprises needing flexible data storage without capital expenditure.",
-    features: ["Object & block storage", "Pay-as-you-grow", "Enterprise encryption", "API access"],
-  },
-  {
-    icon: Monitor,
-    title: "Monitoring as a Service (MaaS)",
-    description: "Comprehensive infrastructure monitoring with real-time dashboards, intelligent alerting, and proactive incident management.",
-    features: ["Real-time dashboards", "Intelligent alerting", "SLA reporting", "Proactive response"],
+    title: "IT Infrastructure Transformation",
+    description: "Modernize your IT infrastructure by migrating to cloud-based systems, improving efficiency, scalability, and cost-effectiveness with virtualization, automation, and integration.",
+    features: ["Cloud migration", "Virtualization", "Automation", "Cost optimization"],
   },
   {
     icon: Shield,
-    title: "Managed IT Infrastructure",
-    description: "End-to-end management of your IT infrastructure including network operations, security management, and capacity planning.",
-    features: ["NOC operations", "Security management", "Capacity planning", "Vendor management"],
+    title: "Disaster Recovery Solution",
+    description: "Ensure business continuity with automated backups, failover systems, and rapid recovery protocols. Minimize downtime and data loss during unexpected disruptions.",
+    features: ["Automated backups", "Failover systems", "Rapid recovery", "Business continuity"],
+  },
+  {
+    icon: Server,
+    title: "Multi-Cloud & Hybrid Cloud",
+    description: "Seamlessly adopt multi-cloud and hybrid cloud environments. Leverage the best of public and private clouds, optimizing performance, cost, and flexibility.",
+    features: ["Multi-cloud orchestration", "Hybrid integration", "Cost optimization", "Flexible workloads"],
+  },
+  {
+    icon: RefreshCw,
+    title: "Modernizing Application Infrastructure",
+    description: "Re-architect legacy systems for the cloud, enabling better scalability, performance, and integration with modern cloud platforms for enhanced user experiences.",
+    features: ["Legacy modernization", "Cloud-native apps", "Scalable architecture", "Enhanced UX"],
+  },
+  {
+    icon: Monitor,
+    title: "Hybrid Readiness & Integration",
+    description: "Prepare your business for hybrid cloud with seamless connectivity between on-premises and cloud environments. Tools and strategies for data synchronization and security.",
+    features: ["On-prem to cloud", "Data synchronization", "Security integration", "Workload management"],
+  },
+  {
+    icon: HardDrive,
+    title: "Archive, Backup & Remote Backup",
+    description: "Cloud-based archiving and backup services with secure, long-term data storage and remote backup options. Encryption and redundancy ensure data is protected and accessible.",
+    features: ["Long-term archiving", "Remote backup", "Encryption", "Redundancy"],
   },
 ];
 
@@ -54,8 +54,8 @@ const CloudServices = () => {
   return (
     <div>
       <PageHero
-        title="Cloud & Managed Services"
-        subtitle="Enterprise-grade cloud infrastructure and managed IT services, hosted locally in Ghana."
+        title="Cloud Solutions"
+        subtitle="Scalable IT infrastructure transformation, disaster recovery, and multi-cloud adoption services."
         backgroundImage={cloudBg}
       />
 
@@ -64,7 +64,7 @@ const CloudServices = () => {
           <SectionHeading
             label="Services"
             title="Comprehensive Cloud Solutions"
-            description="From hybrid cloud to fully managed infrastructure, we deliver the services enterprises need to modernise securely."
+            description="From infrastructure transformation to fully managed hybrid cloud environments, we deliver the services enterprises need."
           />
           <div className="grid md:grid-cols-2 gap-6">
             {services.map((service, i) => (
@@ -78,12 +78,12 @@ const CloudServices = () => {
                   <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                     <service.icon className="w-5 h-5 text-primary" />
                   </div>
-                  <h3 className="text-lg font-bold text-secondary">{service.title}</h3>
+                  <h3 className="text-lg font-bold text-foreground">{service.title}</h3>
                 </div>
                 <p className="text-muted-foreground leading-relaxed mb-4">{service.description}</p>
                 <ul className="grid grid-cols-2 gap-2">
                   {service.features.map((f) => (
-                    <li key={f} className="flex items-center gap-2 text-sm text-secondary">
+                    <li key={f} className="flex items-center gap-2 text-sm text-foreground">
                       <CheckCircle2 className="w-3.5 h-3.5 text-accent shrink-0" />
                       {f}
                     </li>

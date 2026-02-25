@@ -3,11 +3,10 @@ import { Mail, Phone, MapPin } from "lucide-react";
 
 const footerLinks = {
   services: [
-    { label: "Fibre Connectivity", href: "/connectivity" },
+    { label: "Connectivity Solutions", href: "/connectivity" },
     { label: "Data Centres", href: "/data-centres" },
-    { label: "Cloud Services", href: "/cloud-services" },
-    { label: "Managed IT", href: "/cloud-services" },
-    { label: "Dedicated Internet", href: "/connectivity" },
+    { label: "Cloud Solutions", href: "/cloud-services" },
+    { label: "Cybersecurity", href: "/cybersecurity" },
   ],
   company: [
     { label: "About Us", href: "/about" },
@@ -39,7 +38,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed mb-6 max-w-sm">
-              Powering Ghana's digital backbone with secure, scalable, and carrier-grade national infrastructure.
+              A leading provider of innovative technology solutions, specialising in Cloud Services, Data Centre Solutions, Connectivity Solutions, and Cybersecurity Services.
             </p>
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -48,11 +47,11 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Phone className="w-4 h-4 text-primary" />
-                +233 (0) 302 000 000
+                +233 27 482 2222
               </li>
               <li className="flex items-start gap-2 text-sm text-muted-foreground">
                 <MapPin className="w-4 h-4 text-primary mt-0.5" />
-                Accra, Ghana
+                Marina Mall Building, 6th Floor, Airport City, Accra, Ghana
               </li>
             </ul>
           </div>
@@ -108,7 +107,7 @@ const Footer = () => {
 
         <div className="border-t border-border mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Smart Infraco. All rights reserved.
+            © {new Date().getFullYear()} Smart Infraco Limited. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <a href="#" className="text-xs text-muted-foreground hover:text-primary transition-colors">Privacy Policy</a>
