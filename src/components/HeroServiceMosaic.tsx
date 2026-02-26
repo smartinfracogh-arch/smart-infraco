@@ -55,17 +55,20 @@ const HeroServiceMosaic = () => {
           <motion.div
             key={tile.label}
             className={`rounded-2xl overflow-hidden bg-gradient-to-br ${tile.gradient} border border-border/30 group cursor-pointer shadow-lg`}
-            initial={{ opacity: 0, y: 120 + i * 15 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={{
+              y: ["-10%", "10%", "-10%"],
+            }}
             whileHover={{
               scale: 1.08,
               zIndex: 20,
               transition: { duration: 0.3 },
             }}
             transition={{
-              duration: 0.7,
-              delay: 0.15 + i * 0.1,
-              ease: [0.22, 1, 0.36, 1],
+              y: {
+                duration: 4 + i * 0.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              },
             }}
           >
             <div className="absolute inset-0 bg-background/20 group-hover:bg-background/5 transition-colors duration-300" />
