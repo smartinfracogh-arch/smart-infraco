@@ -7,7 +7,6 @@ import {
   Calendar, Newspaper, Award, Radio, Lock
 } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
-import HeroServiceMosaic from "@/components/HeroServiceMosaic";
 import heroBg from "@/assets/hero-bg.jpg";
 import ghanaMap from "@/assets/ghana-network-map.jpg";
 
@@ -74,17 +73,16 @@ const Index = () => {
           animate={{ scale: [1.1, 1.15, 1.1], x: [0, -20, 0], y: [0, -10, 0] }}
           transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/80" />
-        <div className="relative z-10 container mx-auto px-4 py-24">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left - Text */}
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/70" />
+        <div className="relative z-10 container mx-auto px-4 py-32">
+          <div className="max-w-2xl">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
             >
               <span className="inline-block px-4 py-1.5 rounded-full bg-primary/20 text-primary text-xs font-semibold tracking-wider uppercase mb-6">
-                Your One-Stop Digital Partner
+                Ghana's Digital Infrastructure Partner
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
                 Powering Ghana's{" "}
@@ -107,11 +105,6 @@ const Index = () => {
                 </Link>
               </div>
             </motion.div>
-
-            {/* Right - Service Mosaic */}
-            <div className="hidden lg:block">
-              <HeroServiceMosaic />
-            </div>
           </div>
         </div>
       </section>
