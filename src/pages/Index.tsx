@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Globe, Server, Cloud, Shield, Zap, Clock, Building2, Landmark,
   Wifi, HardDrive, Database, Monitor, ArrowRight, CheckCircle2,
@@ -9,6 +9,7 @@ import {
 import SectionHeading from "@/components/SectionHeading";
 import heroBg from "@/assets/hero-bg.jpg";
 import ghanaMap from "@/assets/ghana-network-map.jpg";
+import { useState, useEffect, useCallback } from "react";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
