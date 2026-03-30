@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Globe, Server, Cloud, Shield, Zap, Clock, Building2, Landmark,
   Wifi, HardDrive, Database, Monitor, ArrowRight, CheckCircle2,
@@ -9,6 +9,7 @@ import {
 import SectionHeading from "@/components/SectionHeading";
 import heroBg from "@/assets/hero-bg.jpg";
 import ghanaMap from "@/assets/ghana-network-map.jpg";
+import { useState, useEffect, useCallback } from "react";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -62,50 +63,113 @@ const partners = [
   "NGIC", "ASCEND", "NITA", "NOKIA",
 ];
 
+const heroSlides = [
+  {
+    badge: "Ghana's Digital Infrastructure Partner",
+    title: <>Powering Ghana's{" "}<span className="text-gradient">Digital Backbone</span></>,
+    description: "End-to-end infrastructure solutions in storage, security, support, and connectivity for government and private entities under a single window.",
+    cta: { label: "Explore Our Solutions", href: "/connectivity" },
+    image: heroBg,
+  },
+  {
+    badge: "Connectivity Solutions",
+    title: <>Nationwide{" "}<span className="text-gradient">Fibre & 5G</span>{" "}Network</>,
+    description: "3,800+ km fibre network and 5G deployment delivering ultra-fast speeds across all regional and district capitals of Ghana.",
+    cta: { label: "View Connectivity", href: "/connectivity" },
+    image: heroBg,
+  },
+  {
+    badge: "Data Centre Excellence",
+    title: <>Tier III{" "}<span className="text-gradient">Data Centres</span>{" "}in Ghana</>,
+    description: "State-of-the-art Tier 3 (Accra) and Tier 2 (Kumasi) data centers with redundant power, cooling, and 24/7 monitoring.",
+    cta: { label: "Data Centre Solutions", href: "/data-centres" },
+    image: ghanaMap,
+  },
+  {
+    badge: "Cybersecurity & Cloud",
+    title: <>Securing Ghana's{" "}<span className="text-gradient">Digital Future</span></>,
+    description: "Advanced threat detection, cloud transformation, disaster recovery, and compliance consulting for enterprises and government.",
+    cta: { label: "Learn More", href: "/cybersecurity" },
+    image: heroBg,
+  },
+];
+
 const Index = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(nextSlide, 6000);
+    return () => clearInterval(timer);
+  }, [nextSlide]);
+
   return (
     <div>
-      {/* Hero */}
+      {/* Hero Carousel */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-        <motion.div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroBg})`, scale: 1.1 }}
-          animate={{ scale: [1.1, 1.15, 1.1], x: [0, -20, 0], y: [0, -10, 0] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-        />
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentSlide}
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${heroSlides[currentSlide].image})`, scale: 1.1 }}
+            initial={{ opacity: 0, scale: 1.2 }}
+            animate={{ opacity: 1, scale: 1.1 }}
+            exit={{ opacity: 0, scale: 1.05 }}
+            transition={{ duration: 1.2, ease: "easeInOut" }}
+          />
+        </AnimatePresence>
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/70" />
         <div className="relative z-10 container mx-auto px-4 py-32">
           <div className="max-w-2xl">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-            >
-              <span className="inline-block px-4 py-1.5 rounded-full bg-primary/20 text-primary text-xs font-semibold tracking-wider uppercase mb-6">
-                Ghana's Digital Infrastructure Partner
-              </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
-                Powering Ghana's{" "}
-                <span className="text-gradient">Digital Backbone</span>
-              </h1>
-              <p className="text-lg text-foreground/60 mb-8 leading-relaxed max-w-xl">
-                End-to-end infrastructure solutions in storage, security, support, and connectivity for government and private entities under a single window.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <Link to="/connectivity">
-                  <Button variant="hero" size="xl">
-                    Explore Our Solutions
-                    <ArrowRight className="w-5 h-5" />
-                  </Button>
-                </Link>
-                <Link to="/contact">
-                  <Button variant="heroOutline" size="xl">
-                    Contact Us
-                  </Button>
-                </Link>
-              </div>
-            </motion.div>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentSlide}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.6 }}
+              >
+                <span className="inline-block px-4 py-1.5 rounded-full bg-primary/20 text-primary text-xs font-semibold tracking-wider uppercase mb-6">
+                  {heroSlides[currentSlide].badge}
+                </span>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
+                  {heroSlides[currentSlide].title}
+                </h1>
+                <p className="text-lg text-foreground/60 mb-8 leading-relaxed max-w-xl">
+                  {heroSlides[currentSlide].description}
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  <Link to={heroSlides[currentSlide].cta.href}>
+                    <Button variant="hero" size="xl">
+                      {heroSlides[currentSlide].cta.label}
+                      <ArrowRight className="w-5 h-5" />
+                    </Button>
+                  </Link>
+                  <Link to="/contact">
+                    <Button variant="heroOutline" size="xl">
+                      Contact Us
+                    </Button>
+                  </Link>
+                </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
+        </div>
+
+        {/* Slide Indicators */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3">
+          {heroSlides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentSlide(i)}
+              className={`h-2 rounded-full transition-all duration-500 ${
+                i === currentSlide ? "w-10 bg-primary" : "w-2 bg-foreground/30 hover:bg-foreground/50"
+              }`}
+            />
+          ))}
         </div>
       </section>
 
