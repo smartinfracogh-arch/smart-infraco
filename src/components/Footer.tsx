@@ -31,7 +31,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <img src={logo} alt="Smart Infraco" className="h-10" />
+              <img src={logo} alt="Smart Infraco" className="h-14" />
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed mb-6 max-w-sm">
               A leading provider of innovative technology solutions, specialising in Cloud Services, Data Centre Solutions, Connectivity Solutions, and Cybersecurity Services.
