@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const solutions = [
   { label: "Connectivity Solutions", href: "/connectivity" },
@@ -46,14 +47,7 @@ const Navbar = () => {
       <div className="container mx-auto flex items-center justify-between h-16 lg:h-20 px-4">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
-          <div className="flex items-center gap-1">
-            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-sm">SI</span>
-            </div>
-            <span className="text-lg font-bold text-foreground">
-              Smart <span className="text-primary">Infraco</span>
-            </span>
-          </div>
+          <img src={logo} alt="Smart Infraco" className="h-10" />
         </Link>
 
         {/* Desktop Nav */}
